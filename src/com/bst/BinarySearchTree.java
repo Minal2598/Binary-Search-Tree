@@ -8,7 +8,7 @@ class Node {
 }
 
 public class BinarySearchTree {
-		//Insert Method
+	// Insert Method
 	public Node insert(Node root, int val) {
 		if (root == null) {
 			return craeteNewNode(val);
@@ -21,7 +21,8 @@ public class BinarySearchTree {
 		return root;
 
 	}
-		//New Node Creation Method
+
+	// New Node Creation Method
 	public Node craeteNewNode(int temp) {
 		Node bst = new Node();
 		bst.data = temp;
@@ -29,8 +30,8 @@ public class BinarySearchTree {
 		bst.right = null;
 		return bst;
 	}
-	 
-	public void print(Node root) {  //print method
+
+	public void print(Node root) { // print method
 		if (root == null) {
 			return;
 		}
@@ -38,6 +39,27 @@ public class BinarySearchTree {
 		System.out.println(root.data);
 		print(root.right);
 
+	}
+
+	// Search Node in given BST
+	public boolean nodePresent(Node root, int val) {
+		if (root == null) {
+			return false;
+		}
+		Boolean isPresent = false;
+
+		while (root != null) {
+			if (val < root.data) {
+				root = root.left;
+			} else if (val > root.data) {
+				root = root.right;
+			} else {
+				isPresent = true;
+				break;
+			}
+
+		}
+		return isPresent;
 	}
 
 }
